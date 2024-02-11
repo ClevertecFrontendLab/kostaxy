@@ -15,22 +15,19 @@ const footerActions = [
   <Button type="text" icon={<AppleFilled />}>Apple iOS</Button>
 ]
 
-const Footer: React.FC = () => {
+const Footer: React.FC = () => (
+  <AntdFooter >
+    <Button type='link'>Смотреть отзывы</Button>
+    <Card className='footer-card'
+      actions={footerActions}
+    >
+      <Meta
+        title="Скачать на телефон"
+        description="Доступно в PRO-тарифе"
+      />
+    </Card>
+  </AntdFooter>
+);
 
-  return (
-
-    <AntdFooter >
-      <Button type='link'>Смотреть отзывы</Button>
-      <Card className='footer-card'
-        actions={footerActions}
-      >
-        <Meta
-          title="Скачать на телефон"
-          description="Доступно в PRO-тарифе"
-        />
-      </Card>
-    </AntdFooter>
-  );
-};
 
 export default Footer
