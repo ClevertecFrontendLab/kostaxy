@@ -1,34 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import reactLogo from '/react.svg';
-import viteLogo from '/vite.svg';
-import tsLogo from '/ts.svg';
-import './main-page.css';
+import { Layout } from 'antd';
+import Footer from '@components/footer'
+import Sider from '@components/sider';
+import { useResizeChecker } from '@hooks/resizeChecker';
+import PageHeader from '@components/pageHeader/pageHeader';
+import MainContent from '@components/mainContent/сontent';
+
 
 export const MainPage: React.FC = () => {
-    const [count, setCount] = useState(0);
 
-    return (
-        <>
-            <div>
-                <a href='https://vitejs.dev' target='_blank'>
-                    <img src={viteLogo} className='logo' alt='Vite logo' />
-                </a>
-                <a href='https://react.dev' target='_blank'>
-                    <img src={reactLogo} className='logo react' alt='React logo' />
-                </a>
-                <a href='https://www.typescriptlang.org/' target='_blank'>
-                    <img src={tsLogo} className='logo' alt='TS logo' />
-                </a>
-            </div>
-            <h1>Vite + React + TS</h1>
-            <div className='card'>
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/pages/main-page.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
-        </>
-    );
+
+  const { testId, headerBtnIcon } = useResizeChecker();
+
+  return (
+    <Layout className="site-layout">
+      <Sider testId={testId} />
+      <Layout className='content-layout'>
+        <PageHeader headerBtnIcon={headerBtnIcon} />
+        <MainContent />
+        <Footer />
+      </Layout>
+    </Layout>
+  );
 };
