@@ -1,11 +1,11 @@
 import React from 'react';
 
 import {
-  CalendarOutlined,
   HeartFilled,
   IdcardOutlined,
 } from '@ant-design/icons';
 import { Button, Card, Layout } from 'antd';
+import CalendarIcon from '@components/calendarIcon';
 
 
 const { Content } = Layout;
@@ -31,7 +31,7 @@ const MainContent: React.FC = () => {
               <Button type='link' icon={<HeartFilled />}>Тренировки</Button>
             </Card>
             <Card title="Назначить календарь" className='action-card'>
-              <Button type='link' icon={<CalendarOutlined />}>Календарь</Button>
+              <Button type='link' icon={<CalendarIcon />}>Календарь</Button>
             </Card>
             <Card title="Заполнить профиль" className='action-card'>
               <Button type='link' icon={<IdcardOutlined />}>Профиль</Button>

@@ -181,6 +181,7 @@
 }
 @media only screen and (min-width: 360px) and (max-width: 833px) {
   .switcher {
+    left: 99%;
     top: 48px;
     width: 32px;
     height: 48px;
@@ -296,6 +297,9 @@
     align-items: end;
   }
 }
+.ant-layout-footer .ant-btn {
+  color: var(--primary-light-6);
+}
 
 @media only screen and (min-width: 360px) and (max-width: 833px) {
   .footer-card {
@@ -398,6 +402,9 @@
 }
 .action-card .ant-card-body {
   text-align: center;
+}
+.action-card .ant-card-body .ant-btn {
+  color: var(--primary-light-6);
 }
 .action-card .ant-card-head-title {
   padding: 12px 0;
