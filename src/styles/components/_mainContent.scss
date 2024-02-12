@@ -1,0 +1,103 @@
+.card-container {
+  max-width: 752px;
+  display: flex;
+  flex-direction: column;
+  margin: 24px;
+  gap: 24px;
+}
+
+.main-card {
+  font-size: 16px;
+  line-height: 130%;
+  color: var(--primary-light-9);
+}
+
+.card-sub-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+.info-card {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+  color: var(--character-light-title-85);
+}
+
+.action-cards-container {
+  display: flex;
+  gap: 16px;
+
+  @include sm {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include md {
+    flex-direction: row;
+  }
+
+  @include lg {
+    flex-direction: row;
+  }
+}
+
+.action-card {
+  @include sm {
+    text-align: center;
+    width: 100%;
+  }
+
+  width: 240px;
+
+  .ant-card-head-title {
+    white-space: normal;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: var(--character-light-title-85);
+
+    @include sm {
+      text-align: center;
+    }
+
+    @include md {
+      text-align: left;
+    }
+
+    @include lg {
+      text-align: center;
+    }
+  }
+
+  .ant-card-body {
+    text-align: center;
+
+    .ant-btn {
+      color: var(--primary-light-6);
+
+      svg>path {
+        fill: var(--primary-light-6);
+      }
+    }
+  }
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: var(--character-light-title-85);
+
+  .ant-card-head-title {
+    padding: 12px 0;
+  }
+
+  .ant-card-body {
+    padding: 12px 0;
+  }
+
+}
