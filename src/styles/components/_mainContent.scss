@@ -53,10 +53,6 @@
 
   width: 240px;
 
-  .ant-card-head {
-    padding: 0px 18px;
-  }
-
   .ant-card-head-title {
     white-space: normal;
     text-align: center;
@@ -64,6 +60,18 @@
     font-size: 16px;
     line-height: 130%;
     color: var(--character-light-title-85);
+
+    @include sm {
+      text-align: center;
+    }
+
+    @include md {
+      text-align: left;
+    }
+
+    @include lg {
+      text-align: center;
+    }
   }
 
   .ant-card-body {

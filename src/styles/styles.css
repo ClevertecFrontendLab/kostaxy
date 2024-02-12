@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+html {
+  overflow-x: hidden;
+}
+
 :root {
   --character-light-title-85: #262626;
   --character-light-primary-85: #262626;
@@ -137,10 +141,10 @@
 }
 @media only screen and (min-width: 834px) {
   .ant-layout-sider-collapsed {
-    flex: 0 0 80px !important;
-    max-width: 80px !important;
-    min-width: 80px !important;
-    width: 80px !important;
+    flex: 0 0 64px !important;
+    max-width: 64px !important;
+    min-width: 64px !important;
+    width: 64px !important;
   }
   .ant-layout-sider-collapsed img {
     display: block;
@@ -403,9 +407,6 @@
     width: 100%;
   }
 }
-.action-card .ant-card-head {
-  padding: 0px 18px;
-}
 .action-card .ant-card-head-title {
   white-space: normal;
   text-align: center;
@@ -413,6 +414,21 @@
   font-size: 16px;
   line-height: 130%;
   color: var(--character-light-title-85);
+}
+@media only screen and (min-width: 360px) and (max-width: 833px) {
+  .action-card .ant-card-head-title {
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 834px) {
+  .action-card .ant-card-head-title {
+    text-align: left;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .action-card .ant-card-head-title {
+    text-align: center;
+  }
 }
 .action-card .ant-card-body {
   text-align: center;
@@ -435,6 +451,7 @@
   min-height: 100vh;
   background-size: cover;
   background-position: center;
+  width: 100vw;
 }
 
 .content-layout {
