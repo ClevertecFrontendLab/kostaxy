@@ -81,6 +81,10 @@
   cursor: pointer;
   z-index: 9999;
 
+  svg {
+    fill: var(--character-light-secondary-45);
+  }
+
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="66" viewBox="0 0 20 66" fill="none"><path d="M0 0L20 8V58L0 66V0Z" fill="white"/></svg>');
   top: 50%;
   width: 20px;
@@ -131,8 +135,15 @@
   .sign-out {
     box-shadow: inset 0 1px 0 0 var(--character-light-dividers);
 
+
+
     .ant-menu-title-content {
       padding: 0 15px;
+
+      @include sm {
+        text-align: center;
+        margin: 0;
+      }
     }
 
     .ant-menu-item-icon {

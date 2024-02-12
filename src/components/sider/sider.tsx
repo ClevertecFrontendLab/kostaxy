@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import {
-  CalendarFilled,
   HeartFilled,
   IdcardOutlined,
   MenuFoldOutlined,
@@ -14,6 +13,7 @@ import { Layout, Menu } from 'antd';
 import imgSmall from '../../assets/svg/logo/fit.svg';
 import imgLarge from '../../assets/svg/logo/Cleverfit.svg';
 import ExitIcon from '@components/exitIcon';
+import CalendarIcon from '@components/calendarIcon';
 
 const { Sider } = Layout;
 type Props = { testId: string }
@@ -28,7 +28,7 @@ const MySider = React.memo(({ testId }: Props) => {
     [
       {
         key: '1',
-        icon: <CalendarFilled />,
+        icon: <CalendarIcon />,
         label: `${!collapsed ? 'Календарь' : ''}`,
       },
       {

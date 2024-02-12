@@ -179,6 +179,9 @@
   width: 20px;
   height: 66px;
 }
+.switcher svg {
+  fill: var(--character-light-secondary-45);
+}
 @media only screen and (min-width: 360px) and (max-width: 833px) {
   .switcher {
     left: 99%;
@@ -219,6 +222,12 @@
 }
 .sider-container .sign-out .ant-menu-title-content {
   padding: 0 15px;
+}
+@media only screen and (min-width: 360px) and (max-width: 833px) {
+  .sider-container .sign-out .ant-menu-title-content {
+    text-align: center;
+    margin: 0;
+  }
 }
 .sider-container .sign-out .ant-menu-item-icon {
   color: var(--neutral-gray-13);
@@ -399,12 +408,20 @@
 }
 .action-card .ant-card-head-title {
   white-space: normal;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: var(--character-light-title-85);
 }
 .action-card .ant-card-body {
   text-align: center;
 }
 .action-card .ant-card-body .ant-btn {
   color: var(--primary-light-6);
+}
+.action-card .ant-card-body .ant-btn svg > path {
+  fill: var(--primary-light-6);
 }
 .action-card .ant-card-head-title {
   padding: 12px 0;
