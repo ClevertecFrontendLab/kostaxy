@@ -237,6 +237,12 @@ html {
   color: var(--neutral-gray-13);
 }
 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .site-page-header {
   background: var(--primary-light-1);
 }
@@ -448,14 +454,54 @@ html {
 
 .site-layout {
   background: url(../assets/img/body-bg/main-page_light.png);
-  min-height: 100vh;
   background-size: cover;
   background-position: center;
+  min-height: 100vh;
   width: 100vw;
 }
 
 .content-layout {
   background: none;
+}
+
+.auth-bg {
+  background: url(../assets/img/body-bg/enter-page_light.png);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2px;
+  padding: 64px 32px;
+  width: 539px;
+  height: 742px;
+}
+
+.auth-card {
+  width: 368px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.ant-card-body {
+  padding: 0;
+}
+
+.ant-tabs-tab {
+  display: flex;
+  justify-content: center;
+  width: 184px;
+  height: 46px;
+  margin: 0 !important;
 }
 
 /*# sourceMappingURL=styles.css.map */
