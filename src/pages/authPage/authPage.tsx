@@ -2,45 +2,39 @@ import FormAuthorization from '@components/formAuthorization/formAuthorization';
 import { Card, Tabs, TabsProps } from 'antd';
 import React from 'react';
 
+import styles from './authPage.module.scss';
+
 import Logo from '@components/logo/logo';
+import FormRegistration from '@components/formRegistration';
+import PATHS from '../../routes/paths';
+import { redirectTo } from '../../routes/routes';
 
 const AuthPage: React.FC = () => {
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-  };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
-
-  const onChange = (key: string) => {
-    console.log(key);
-  };
 
   const items: TabsProps['items'] = [
     {
       key: '1',
       label: 'Вход',
       children: <FormAuthorization />,
-      className: "auth-tab"
+      className: 'auth-tab',
     },
     {
       key: '2',
       label: 'Регистрация',
-      children: 'Форма регистрации',
-      className: "auth-tab"
+      className: 'auth-tab'
     },
   ];
 
   return (
-    <div className='auth-bg'>
-      <Card className='auth-card-container'>
-        <div className='auth-card'>
+    <div className={styles.background}>
+      <Card className={styles.сard_сontainer}>
+        <div className={styles.сard}>
           <Logo logoWidth={309} />
-          <Tabs defaultActiveKey="1" items={items} onChange={onChange} centered={true} />
+          <Tabs onChange={() => redirectTo(PATHS.authRegistration)} defaultActiveKey='1' items={items} centered={true} />
         </div>
       </Card>
     </div>
   );
 };
-export default AuthPage
+export default AuthPage;

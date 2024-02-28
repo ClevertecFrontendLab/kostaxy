@@ -1,7 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { createBrowserHistory } from 'history';
 import { createReduxHistoryContext } from 'redux-first-history';
-import usersReducer from './usersReducer';
+import loaderSlice from './loaderSlice';
+import authSlice from './authSlice';
 
 const {
   createReduxHistory,
@@ -11,7 +12,8 @@ const {
 
 export const store = configureStore({
   reducer: combineReducers({
-    usersReducer: usersReducer,
+    loader: loaderSlice,
+    auth: authSlice,
     router: routerReducer
   }),
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(routerMiddleware),

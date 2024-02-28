@@ -1,5 +1,9 @@
 .logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include centerFlex;
+  margin: 0 auto;
+
+  @include sm {
+    width: 203px;
+    height: 50px;
+  }
 }

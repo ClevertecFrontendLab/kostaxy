@@ -1,0 +1,74 @@
+.background {
+  background: url(../../assets/img/body-bg/enter-page_light.png);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.сard_сontainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2px;
+  padding: 64px 32px !important;
+  width: 539px;
+  height: 742px;
+
+  @media only screen and (min-width: 360px) and (max-width: calc(834px - 1px)) {
+    width: 328px;
+    height: 612px;
+
+    :global(.ant-btn .anticon) {
+      display: none;
+    }
+  }
+
+  :global(.ant-card-body) {
+    padding: 0 !important;
+  }
+
+  :global(.ant-tabs-tab) {
+    display: flex;
+    justify-content: center;
+    width: 184px;
+    height: 46px;
+    margin: 0 !important;
+
+    @media only screen and (min-width: 360px) and (max-width: calc(834px - 1px)) {
+      width: 148px;
+    }
+  }
+
+
+  :global(.ant-tabs-top .ant-tabs-nav) {
+    margin: 0 0 32px 0 !important;
+  }
+
+  :global(.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn) {
+    color: var(--primary-light-6);
+  }
+
+  :global(.ant-tabs-ink-bar) {
+    background: var(--primary-light-6);
+  }
+}
+
+.сard {
+  width: 368px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @media only screen and (min-width: 360px) and (max-width: calc(834px - 1px)) {
+    width: 296px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: rgba(0, 0, 0, 0.85);
+  }
+}
