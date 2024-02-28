@@ -71,10 +71,7 @@
 }
 
 .switcher {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  @include centerFlex;
   position: absolute;
   left: 100%;
   transform: translateY(-50%);

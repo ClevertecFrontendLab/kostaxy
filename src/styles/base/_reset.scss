@@ -1,3 +1,21 @@
 html {
   overflow-x: hidden;
 }
+
+.ant-btn-primary {
+  background-color: var(--primary-light-6) !important;
+  background: var(--primary-light-6) !important;
+}
+
+.ant-btn-link {
+  color: var(--primary-light-6) !important;
+}
+
+.ant-checkbox-checked::after {
+  border: var(--primary-light-6);
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--primary-light-6) !important;
+  border-color: var(--primary-light-6) !important;
+}

@@ -1,0 +1,67 @@
+.remember_container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 46px;
+  margin-bottom: 24px;
+
+  :global(.ant-form-large .ant-form-item-control-input) {
+    min-height: auto;
+  }
+
+  .ant-form-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    padding: 0;
+    height: auto;
+  }
+
+  div {
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+.input_form {
+  margin-bottom: 32px !important;
+}
+
+:global(#basic_password_help) {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  color: var(--character-light-secondary-45);
+}
+
+:global(#basic_password_confirm_help) {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  color: var(--character-light-secondary-45);
+}
+
+.buttons_container {
+  :global(.ant-form-item) {
+    margin-bottom: 0 !important;
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  :global(.ant-divider-horizontal.ant-divider-with-text) {
+    margin: 0;
+
+    :global(.ant-divider-inner-text) {
+      color: var(--character-light-secondary-45);
+    }
+  }
+
+
+}

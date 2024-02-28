@@ -14,11 +14,24 @@ import imgSmall from '../../assets/svg/logo/fit.svg';
 import imgLarge from '../../assets/svg/logo/Cleverfit.svg';
 import ExitIcon from '@components/exitIcon';
 import CalendarIcon from '@components/calendarIcon';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@redux/configure-store';
+import { logout } from '@redux/authSlice';
+import { redirectTo } from '../../routes/routes';
+import PATHS from '../../routes/paths';
 
 const { Sider } = Layout;
 type Props = { testId: string }
 const MySider = React.memo(({ testId }: Props) => {
   const [collapsed, setCollapsed] = useState(false);
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    dispatch(logout());
+    redirectTo(PATHS.auth);
+  }
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -52,7 +65,8 @@ const MySider = React.memo(({ testId }: Props) => {
       className: "sign-out",
       key: '5',
       icon: <ExitIcon />,
-      label: `${!collapsed ? 'Выход' : ''}`
+      label: `${!collapsed ? 'Выход' : ''}`,
+      onClick: handleLogout
     }
   ]
 

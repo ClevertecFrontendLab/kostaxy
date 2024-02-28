@@ -4,6 +4,24 @@ html {
   overflow-x: hidden;
 }
 
+.ant-btn-primary {
+  background-color: var(--primary-light-6) !important;
+  background: var(--primary-light-6) !important;
+}
+
+.ant-btn-link {
+  color: var(--primary-light-6) !important;
+}
+
+.ant-checkbox-checked::after {
+  border: var(--primary-light-6);
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--primary-light-6) !important;
+  border-color: var(--primary-light-6) !important;
+}
+
 :root {
   --character-light-title-85: #262626;
   --character-light-primary-85: #262626;
@@ -237,6 +255,19 @@ html {
   color: var(--neutral-gray-13);
 }
 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+@media only screen and (min-width: 360px) and (max-width: 833px) {
+  .logo-container {
+    width: 203px;
+    height: 50px;
+  }
+}
+
 .site-page-header {
   background: var(--primary-light-1);
 }
@@ -448,9 +479,9 @@ html {
 
 .site-layout {
   background: url(../assets/img/body-bg/main-page_light.png);
-  min-height: 100vh;
   background-size: cover;
   background-position: center;
+  min-height: 100vh;
   width: 100vw;
 }
 
