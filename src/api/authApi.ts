@@ -55,9 +55,9 @@ export const registration = (email: string, password: string) => async (dispatch
 export const changePassword = (email: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(showLoader())
-    await api.post('/auth/check-email', { email });
-    redirectTo(PATHS.resetPassword)
     dispatch(resetPassword(email));
+    await api.post('/auth/check-email', { email });
+    redirectTo(PATHS.resetPassword);
   } catch (error: any) {
     if (error.response.status === 404 && error.response.data.message === 'Email не найден') {
       redirectTo(PATHS.emailError)
