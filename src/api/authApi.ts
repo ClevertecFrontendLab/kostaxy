@@ -1,7 +1,7 @@
 import { redirectTo } from '../routes/routes';
 import { hideLoader, showLoader } from '@redux/loaderSlice';
 import axios from 'axios';
-import { loginSuccess, loginFailure, resetPassword, registerUser, resetPasswordFailure, newPassword, logout } from './../redux/authSlice';
+import { loginSuccess, resetAuth, resetPassword, registerUser, resetPasswordFailure, newPassword, logout } from './../redux/authSlice';
 import { AppDispatch } from './../redux/configure-store';
 import PATHS from '../routes/paths';
 
@@ -9,19 +9,21 @@ const api = axios.create({
   baseURL: 'https://marathon-api.clevertec.ru',
   headers: {
     'Content-Type': 'application/json',
+    'accept': 'application/json'
   },
+  withCredentials: true
 });
+
 
 export const login = (email: string, password: string, isRememberUser: boolean) => async (dispatch: AppDispatch) => {
   try {
     dispatch(showLoader())
-    const token = localStorage.getItem("token") as string;
-
-    const response = await axios({
+    dispatch(resetAuth())
+    localStorage.removeItem("token");
+    const response = await api({
       method: 'post',
       url: '/auth/login',
       data: { email, password },
-      headers: token ? { Bearer: `token=${token}` } : {}
     });
     dispatch(loginSuccess(response.data.accessToken));
     if (isRememberUser) {
@@ -29,7 +31,7 @@ export const login = (email: string, password: string, isRememberUser: boolean) 
     }
     redirectTo(PATHS.main)
   } catch (error: any) {
-    dispatch(loginFailure());
+    dispatch(resetAuth());
     redirectTo(PATHS.authError);
     dispatch(hideLoader())
   }
@@ -85,13 +87,12 @@ export const setNewPassword = (password: string, confirmPassword: string) => asy
   try {
     dispatch(showLoader())
     dispatch(newPassword({ password: password, passwordConfirm: confirmPassword }))
-    const token = localStorage.getItem("token") as string;
-
-    await axios({
+    console.log(document.cookie)
+    await api({
       method: 'post',
       url: '/auth/change-password',
       data: { password, confirmPassword },
-      headers: { Cookie: `token=${token}` }
+      headers: { Cookie: `accessToken=${document.cookie}` }
     });
 
     localStorage.removeItem("token");
@@ -104,3 +105,21 @@ export const setNewPassword = (password: string, confirmPassword: string) => asy
   }
 };
 
+export const getGoogleToken = () => {
+  window.location.href = 'https://marathon-api.clevertec.ru/auth/google';
+};
+
+export const loginUseGoogleToken = (token: string) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(showLoader())
+    dispatch(resetAuth())
+    localStorage.removeItem("token");
+    dispatch(loginSuccess(token));
+    localStorage.setItem("token", token);
+    redirectTo(PATHS.main)
+  } catch (error: any) {
+    dispatch(resetAuth());
+    redirectTo(PATHS.authError);
+    dispatch(hideLoader())
+  }
+};

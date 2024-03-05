@@ -16,8 +16,7 @@ const ResetPasswordPage: React.FC = () => {
   const resetPasswordError = useSelector((state: any) => state.auth.resetPasswordError)
 
   const handleComplete = (value: string) => {
-    setCode(value);
-    dispatch(changePasswordCodeConfirm(email, code));
+    dispatch(changePasswordCodeConfirm(email, value));
   };
   const handleCodeChange = (code: string) => {
     setCode(code);

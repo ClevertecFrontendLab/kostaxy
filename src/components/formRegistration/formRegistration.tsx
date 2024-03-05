@@ -1,12 +1,11 @@
-import { Button, Card, Checkbox, Form, Input } from 'antd';
+import { Button, Card, Form, Input } from 'antd';
 import React, { useEffect, useState } from 'react';
 
 import styles from './formRegistration.module.scss'
 import { GooglePlusOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
-import { registration } from '../../api/authApi';
-import { useForm } from 'antd/lib/form/Form';
+import { getGoogleToken, registration } from '../../api/authApi';
 
 interface ButtonSettings {
   type: "link" | "primary" | "text" | "ghost" | "default" | "dashed" | undefined;
@@ -135,6 +134,7 @@ const FormRegistration: React.FC = () => {
           </Form.Item>
           <Form.Item>
             <Button
+              onClick={getGoogleToken}
               icon={<GooglePlusOutlined />}
               style={{ width: "100%" }}>
               Войти через Google

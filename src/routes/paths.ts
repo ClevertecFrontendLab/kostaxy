@@ -12,6 +12,7 @@ const PATHS = {
   changePasswordErrorPage: '/result/error-change-password',
   changePasswordSuccess: '/result/success-change-password',
   newPasswordPage: '/auth/change-password',
+  feedbacks: '/feedbacks'
 };
 
 export default PATHS;

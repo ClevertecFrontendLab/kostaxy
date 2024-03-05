@@ -1,11 +1,8 @@
-import { WarningFilled } from '@ant-design/icons';
 import { Button, Card } from 'antd';
 import React from 'react';
 
 import styles from './serverErrorPage.module.scss'
 import ErrorServerIcon from '@components/errorServerIcon';
-import { redirectTo } from '../../routes/routes';
-import PATHS from '../../routes/paths';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
 import { changePassword } from '../../api/authApi';

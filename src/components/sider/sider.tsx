@@ -21,9 +21,9 @@ import { redirectTo } from '../../routes/routes';
 import PATHS from '../../routes/paths';
 
 const { Sider } = Layout;
-type Props = { testId: string }
-const MySider = React.memo(({ testId }: Props) => {
-  const [collapsed, setCollapsed] = useState(false);
+type Props = { testId: string, isCollapsed?: boolean }
+const MySider = React.memo(({ testId, isCollapsed = false }: Props) => {
+  const [collapsed, setCollapsed] = useState(isCollapsed);
 
   const dispatch = useDispatch<AppDispatch>();
 

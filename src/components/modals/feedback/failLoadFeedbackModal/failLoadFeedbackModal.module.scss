@@ -1,0 +1,67 @@
+.modal {
+  :global(.ant-modal-body) {
+    padding: 0;
+  }
+
+  width: 529px !important;
+
+  @media only screen and (min-width: 360px) and (max-width: calc(834px - 1px)) {
+    width: 328px !important;
+  }
+}
+
+.сard_сontainer {
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 2px !important;
+  padding: 64px 3px !important;
+
+  :global(.ant-card-body) {
+    padding: 0 !important;
+  }
+
+  @media only screen and (min-width: 360px) and (max-width: calc(834px - 1px)) {
+    padding: 32px 16px !important;
+  }
+}
+
+
+.сard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
+  color: var(--character-light-title-85);
+}
+
+.subtext {
+  width: auto;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  text-align: center;
+  color: var(--character-light-secondary-45);
+
+  @media only screen and (min-width: 360px) and (max-width: calc(834px - 1px)) {
+    align-self: center;
+    width: 220px;
+  }
+}
