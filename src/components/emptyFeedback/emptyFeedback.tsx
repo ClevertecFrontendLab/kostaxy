@@ -2,10 +2,11 @@ import React from 'react';
 
 import { Button, Card } from 'antd';
 
-import styles from './emptyFeedback.module.scss'
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
 import { showFeedbackFormModal } from '@redux/modalSlice';
+
+import styles from './emptyFeedback.module.scss';
 
 export const EmptyFeedback = () => {
 
