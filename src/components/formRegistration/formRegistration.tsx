@@ -7,11 +7,10 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
 import { getGoogleToken, registration } from '../../api/authApi';
 
-interface ButtonSettings {
+type ButtonSettings = {
   type: "link" | "primary" | "text" | "ghost" | "default" | "dashed" | undefined;
   disabled: boolean;
 }
-
 
 const FormRegistration: React.FC = () => {
 

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { loginSuccess, resetAuth, resetPassword, registerUser, resetPasswordFailure, newPassword, logout } from './../redux/authSlice';
 import { AppDispatch } from './../redux/configure-store';
 import PATHS from '../routes/paths';
+import { API_URLS } from './constants';
 
 const api = axios.create({
   baseURL: 'https://marathon-api.clevertec.ru',
@@ -22,7 +23,7 @@ export const login = (email: string, password: string, isRememberUser: boolean) 
     localStorage.removeItem("token");
     const response = await api({
       method: 'post',
-      url: '/auth/login',
+      url: API_URLS.authLogin,
       data: { email, password },
     });
     dispatch(loginSuccess(response.data.accessToken));
@@ -41,7 +42,7 @@ export const registration = (email: string, password: string) => async (dispatch
   try {
     dispatch(showLoader())
     dispatch(registerUser({ email: email, password: password }))
-    await api.post('/auth/registration', { email, password });
+    await api.post(API_URLS.authRegistration, { email, password });
     redirectTo(PATHS.registrationSuccess)
   } catch (error: any) {
     if (error.response.status === 409) {
@@ -58,7 +59,7 @@ export const changePassword = (email: string) => async (dispatch: AppDispatch) =
   try {
     dispatch(showLoader())
     dispatch(resetPassword(email));
-    await api.post('/auth/check-email', { email });
+    await api.post(API_URLS.authCheckEmail, { email });
     redirectTo(PATHS.resetPassword);
   } catch (error: any) {
     if (error.response.status === 404 && error.response.data.message === 'Email не найден') {
@@ -74,7 +75,7 @@ export const changePassword = (email: string) => async (dispatch: AppDispatch) =
 export const changePasswordCodeConfirm = (email: string, code: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(showLoader())
-    await api.post('/auth/confirm-email', { email, code });
+    await api.post(API_URLS.authConfirmEmail, { email, code });
     redirectTo(PATHS.newPasswordPage)
   } catch (error: any) {
     dispatch(resetPasswordFailure())
@@ -90,7 +91,7 @@ export const setNewPassword = (password: string, confirmPassword: string) => asy
     console.log(document.cookie)
     await api({
       method: 'post',
-      url: '/auth/change-password',
+      url: API_URLS.authChangePassword,
       data: { password, confirmPassword },
       headers: { Cookie: `accessToken=${document.cookie}` }
     });
@@ -106,7 +107,7 @@ export const setNewPassword = (password: string, confirmPassword: string) => asy
 };
 
 export const getGoogleToken = () => {
-  window.location.href = 'https://marathon-api.clevertec.ru/auth/google';
+  window.location.href = API_URLS.authGoogle;
 };
 
 export const loginUseGoogleToken = (token: string) => async (dispatch: AppDispatch) => {

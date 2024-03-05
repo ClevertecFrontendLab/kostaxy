@@ -9,12 +9,13 @@ import { hideFeedbackSuccessModal } from '@redux/modalSlice';
 import { getFeedbacksPosts } from '../../../../api/feedbacksApi';
 
 import styles from './successFeedbackModal.module.scss';
+import { isShowFeedbackSuccessSelect } from '@redux/selectors';
 
 const SuccessFeedbackModal: React.FC = React.memo(() => {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const isOpen = useSelector((state: any) => state.modal.isShowFeedbackSuccess)
+  const isOpen = useSelector(isShowFeedbackSuccessSelect)
 
 
   const handleOk = () => {

@@ -9,10 +9,11 @@ import PATHS from '../../../..//routes/paths';
 import ErrorServerIcon from '@components/errorServerIcon';
 import { hideFeedbackLoadErrorModal } from '@redux/modalSlice';
 import { AppDispatch } from '@redux/configure-store';
+import { isShowFeedbackLoadFailedSelect } from '@redux/selectors';
 
 const FailLoadFeedbackModal: React.FC = React.memo(() => {
 
-  const isOpen = useSelector((state: any) => state.modal.isShowFeedbackLoadFailed)
+  const isOpen = useSelector(isShowFeedbackLoadFailedSelect)
   const dispatch = useDispatch<AppDispatch>();
 
   const handleBack = () => {

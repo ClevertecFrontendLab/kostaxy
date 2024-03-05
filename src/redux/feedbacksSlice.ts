@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 
-interface FeedbacksState {
+type FeedbacksState = {
   posts: FeedbackPost[];
 }
 
@@ -21,7 +21,7 @@ const feedbacksSlice = createSlice({
   },
 });
 
-export interface FeedbackPost {
+export type FeedbackPost = {
   "id": string,
   "fullName": string | null,
   "imageSrc": string | null,

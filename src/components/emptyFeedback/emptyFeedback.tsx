@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
 import { showFeedbackFormModal } from '@redux/modalSlice';
 
-const EmptyFeedback = () => {
+export const EmptyFeedback = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   const handleCreateFeedback = () => {
@@ -35,5 +35,3 @@ const EmptyFeedback = () => {
 
   );
 };
-
-export default EmptyFeedback;

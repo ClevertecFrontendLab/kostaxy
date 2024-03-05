@@ -9,26 +9,24 @@ import { hideFeedbackFormModal } from '@redux/modalSlice';
 import { createFeedbackPost } from '../../../../api/feedbacksApi';
 
 import styles from './createFeedbackModal.module.scss'
+import { isShowFeedbackFormSelect } from '@redux/selectors';
 
 const CreateFeedbackModal: React.FC = React.memo(() => {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const isOpen = useSelector((state: any) => state.modal.isShowFeedbackForm)
+  const isOpen = useSelector(isShowFeedbackFormSelect)
 
   const [form] = Form.useForm();
 
   const handleOk = () => {
-    try {
-      form
-        .validateFields()
-        .then(({ rating, feedback }) => {
-          handleCancel();
-          dispatch(createFeedbackPost(rating, feedback))
-        })
-        .catch((data) => console.error(data))
-    } catch (e) {
-    }
+
+    form
+      .validateFields()
+      .then(({ rating, feedback }) => {
+        handleCancel();
+        dispatch(createFeedbackPost(rating, feedback))
+      })
 
   };
 
