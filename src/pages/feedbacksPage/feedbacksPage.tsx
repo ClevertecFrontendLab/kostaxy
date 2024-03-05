@@ -16,7 +16,7 @@ import { showFeedbackFormModal } from '@redux/modalSlice';
 import FailAddFeedbackModal from '@components/modals/feedback/failAddFeedbackModal';
 import SuccessFeedbackModal from '@components/modals/feedback/successFeedbackModal';
 import FailLoadFeedbackModal from '@components/modals/feedback/failLoadFeedbackModal/failLoadFeedbackModal';
-import { EmptyFeedback } from '../../components/EmptyFeedback/emptyFeedback';
+import { EmptyFeedback } from '../../components/EmptyFeedback/emptyFeedback.tsx';
 
 const getShortFeedbacks = (posts: any) => {
   return [...posts].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).filter((_, ind) => ind < 4)
