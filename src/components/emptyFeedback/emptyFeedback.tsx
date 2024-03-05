@@ -8,7 +8,7 @@ import { showFeedbackFormModal } from '@redux/modalSlice';
 
 import styles from './emptyFeedback.module.scss';
 
-export const EmptyFeedback = () => {
+const EmptyFeedback = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   const handleCreateFeedback = () => {
@@ -36,3 +36,5 @@ export const EmptyFeedback = () => {
 
   );
 };
+
+export default EmptyFeedback
