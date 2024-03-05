@@ -18,7 +18,6 @@ import ChangePasswordSuccessPage from "@pages/changePasswordSuccessPage";
 import AuthRegistrationPage from "@pages/authRegistrationPage";
 import NewPasswordPage from "@pages/newPasswordPage";
 import FeedbacksPage from "@pages/feedbacksPage";
-import { loginSuccess } from "@redux/authSlice";
 import { loginUseGoogleToken } from "../api/authApi";
 
 let programmaticallyNavigatedToResult = false;

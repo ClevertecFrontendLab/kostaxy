@@ -1,9 +1,9 @@
-import { Button, Card, Checkbox, Form, Input } from 'antd';
+import { Button, Card, Form, Input } from 'antd';
 import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
-import { registration, setNewPassword } from '../../api/authApi';
+import { setNewPassword } from '../../api/authApi';
 
 import styles from './newPasswordPage.module.scss'
 

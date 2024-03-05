@@ -2,9 +2,7 @@ import Lottie from "lottie-react";
 import groovyWalkAnimation from "./loader.json";
 
 import styles from './Loader.module.scss'
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@reduxjs/toolkit/query";
-import { hideLoader } from "@redux/usersReducer";
+import { useSelector } from "react-redux";
 
 const Loader = () => {
   const isLoading = useSelector((state: any) => state.loader.isLoading)

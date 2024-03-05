@@ -2,9 +2,7 @@ import { CloseCircleFilled, WarningFilled } from '@ant-design/icons';
 import { Button, Card } from 'antd';
 import React from 'react';
 
-import styles from './changePasswordErrorPage.module.scss'
-import { redirectTo } from '../../routes/routes';
-import PATHS from '../../routes/paths';
+import styles from './changePasswordErrorPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
 import { setNewPassword } from '../../api/authApi';

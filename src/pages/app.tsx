@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Provider } from 'react-redux';
 import { history, store } from '@redux/configure-store';

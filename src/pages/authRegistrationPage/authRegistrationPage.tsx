@@ -1,4 +1,3 @@
-import FormAuthorization from '@components/formAuthorization/formAuthorization';
 import { Card, Tabs, TabsProps } from 'antd';
 import React from 'react';
 

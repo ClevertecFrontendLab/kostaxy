@@ -1,4 +1,4 @@
-import { CheckCircleFilled, CloseCircleFilled, WarningFilled } from '@ant-design/icons';
+import { CheckCircleFilled } from '@ant-design/icons';
 import { Button, Card } from 'antd';
 import React from 'react';
 
