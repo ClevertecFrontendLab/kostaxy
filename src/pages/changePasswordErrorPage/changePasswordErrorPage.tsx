@@ -10,7 +10,7 @@ import { passwordConfirmSelect, passwordSelect } from '@redux/selectors';
 
 
 
-const ChangePasswordErrorPage: React.FC = () => {
+export const ChangePasswordErrorPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const password = useSelector(passwordSelect)
   const passwordConfirm = useSelector(passwordConfirmSelect)
@@ -40,4 +40,3 @@ const ChangePasswordErrorPage: React.FC = () => {
     </div>
   );
 };
-export default ChangePasswordErrorPage;

@@ -4,11 +4,11 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { Button, PageHeader as AntdPageHeader } from 'antd';
-import Breadcrumbs from '@components/breadcrumbs';
+import { Breadcrumbs } from '@components/breadcrumbs/breadcrumbs';
 
 
 type Props = { headerBtnIcon: boolean }
-const PageHeader = React.memo(({ headerBtnIcon }: Props) => {
+export const PageHeader = React.memo(({ headerBtnIcon }: Props) => {
 
 
   return (
@@ -27,5 +27,3 @@ const PageHeader = React.memo(({ headerBtnIcon }: Props) => {
     </AntdPageHeader>
   );
 });
-
-export default PageHeader

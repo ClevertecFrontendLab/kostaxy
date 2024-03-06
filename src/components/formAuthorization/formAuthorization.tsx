@@ -7,7 +7,7 @@ import { GooglePlusOutlined } from '@ant-design/icons';
 import { changePassword, getGoogleToken, login } from '../../api/authApi';
 import { AppDispatch } from '@redux/configure-store';
 
-const FormAuthorization: React.FC = () => {
+export const FormAuthorization: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch<AppDispatch>();
@@ -113,4 +113,3 @@ const FormAuthorization: React.FC = () => {
     </Card>
   );
 };
-export default FormAuthorization

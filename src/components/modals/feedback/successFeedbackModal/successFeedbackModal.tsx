@@ -11,7 +11,7 @@ import { getFeedbacksPosts } from '../../../../api/feedbacksApi';
 import styles from './successFeedbackModal.module.scss';
 import { isShowFeedbackSuccessSelect } from '@redux/selectors';
 
-const SuccessFeedbackModal: React.FC = React.memo(() => {
+export const SuccessFeedbackModal: React.FC = React.memo(() => {
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -47,4 +47,3 @@ const SuccessFeedbackModal: React.FC = React.memo(() => {
   );
 });
 
-export default SuccessFeedbackModal

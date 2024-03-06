@@ -2,7 +2,8 @@ import React from 'react';
 import { Breadcrumb } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 
-const Breadcrumbs = () => {
+
+export const Breadcrumbs = () => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter((x) => x);
 
@@ -32,4 +33,3 @@ const Breadcrumbs = () => {
   );
 };
 
-export default Breadcrumbs;

@@ -10,7 +10,7 @@ const redirectToAuth = () => {
   redirectTo(PATHS.auth);
 }
 
-const ChangePasswordSuccessPage: React.FC = () => {
+export const ChangePasswordSuccessPage: React.FC = () => {
   return (
     <div className={styles.background}>
       <Card className={styles.сard_сontainer}>
@@ -32,4 +32,3 @@ const ChangePasswordSuccessPage: React.FC = () => {
     </div>
   );
 };
-export default ChangePasswordSuccessPage;

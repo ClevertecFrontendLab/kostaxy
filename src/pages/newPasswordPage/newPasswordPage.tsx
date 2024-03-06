@@ -7,7 +7,7 @@ import { setNewPassword } from '../../api/authApi';
 
 import styles from './newPasswordPage.module.scss'
 
-const NewPasswordPage: React.FC = () => {
+export const NewPasswordPage: React.FC = () => {
 
 
 
@@ -109,4 +109,3 @@ const NewPasswordPage: React.FC = () => {
     </div >
   );
 };
-export default NewPasswordPage

@@ -11,7 +11,7 @@ import { createFeedbackPost } from '../../../../api/feedbacksApi';
 import styles from './createFeedbackModal.module.scss'
 import { isShowFeedbackFormSelect } from '@redux/selectors';
 
-const CreateFeedbackModal: React.FC = React.memo(() => {
+export const CreateFeedbackModal: React.FC = React.memo(() => {
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -84,5 +84,3 @@ const CreateFeedbackModal: React.FC = React.memo(() => {
 
   );
 });
-
-export default CreateFeedbackModal

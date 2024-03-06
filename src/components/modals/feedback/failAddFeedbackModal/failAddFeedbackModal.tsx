@@ -10,7 +10,7 @@ import { hideFeedbackFailedAddModal, showFeedbackFormModal } from '@redux/modalS
 import styles from './failAddFeedbackModal.module.scss';
 import { isShowFeedbackAddFailedSelect } from '@redux/selectors';
 
-const SuccessFeedbackModal: React.FC = React.memo(() => {
+export const FailAddFeedbackModal: React.FC = React.memo(() => {
 
   const dispatch = useDispatch<AppDispatch>();
   const isOpen = useSelector(isShowFeedbackAddFailedSelect)
@@ -56,4 +56,3 @@ const SuccessFeedbackModal: React.FC = React.memo(() => {
   );
 });
 
-export default SuccessFeedbackModal

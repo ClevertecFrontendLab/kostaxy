@@ -1,9 +1,9 @@
 import React from 'react';
 import { PageHeader as AntdPageHeader } from 'antd';
-import Breadcrumbs from '@components/breadcrumbs';
+import { Breadcrumbs } from '@components/breadcrumbs/breadcrumbs';
 
 
-const HeaderBreadcrumbs = React.memo(() => {
+export const HeaderBreadcrumbs = React.memo(() => {
 
 
   return (
@@ -13,5 +13,3 @@ const HeaderBreadcrumbs = React.memo(() => {
     />
   );
 });
-
-export default HeaderBreadcrumbs

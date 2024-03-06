@@ -3,12 +3,12 @@ import React from 'react';
 
 import styles from './authRegistrationPage.module.scss';
 
-import Logo from '@components/logo/logo';
-import FormRegistration from '@components/formRegistration';
 import { redirectTo } from '../../routes/routes';
 import PATHS from '../../routes/paths';
+import { FormRegistration } from '@components/formRegistration/formRegistration';
+import { Logo } from '@components/logo/logo';
 
-const AuthRegistrationPage: React.FC = () => {
+export const AuthRegistrationPage: React.FC = () => {
 
 
   const items: TabsProps['items'] = [
@@ -37,4 +37,3 @@ const AuthRegistrationPage: React.FC = () => {
     </div>
   );
 };
-export default AuthRegistrationPage;

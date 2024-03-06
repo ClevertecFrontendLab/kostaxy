@@ -9,7 +9,7 @@ import { redirectTo } from '../../routes/routes';
 const redirectToAuthReg = () => {
   redirectTo(PATHS.authRegistration);
 }
-const RegistrationErrorEmailPage: React.FC = () => {
+export const RegistrationErrorEmailPage: React.FC = () => {
   return (
     <div className={styles.background}>
       <Card className={styles.сard_сontainer}>
@@ -32,4 +32,3 @@ const RegistrationErrorEmailPage: React.FC = () => {
     </div>
   );
 };
-export default RegistrationErrorEmailPage;

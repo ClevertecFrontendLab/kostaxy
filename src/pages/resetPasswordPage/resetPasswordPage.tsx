@@ -10,7 +10,7 @@ import { AppDispatch } from '@redux/configure-store';
 import { emailSelect, resetPasswordErrorSelect } from '@redux/selectors';
 
 
-const ResetPasswordPage: React.FC = () => {
+export const ResetPasswordPage: React.FC = () => {
   const [code, setCode] = useState('');
   const dispatch = useDispatch<AppDispatch>();
   const email = useSelector(emailSelect)
@@ -58,4 +58,3 @@ const ResetPasswordPage: React.FC = () => {
     </div >
   );
 };
-export default ResetPasswordPage;

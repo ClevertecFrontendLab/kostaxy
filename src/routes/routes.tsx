@@ -1,25 +1,24 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Routes as ReactRouterDomRoutes, Route, useNavigate } from "react-router-dom";
-import AuthPage from "@pages/authPage";
-import { MainPage } from "@pages/main-page";
-import AuthErrorPage from "@pages/authErrorPage";
-import RegistrationErrorEmailPage from "@pages/registrationErrorEmailPage";
-import ServerErrorPage from "@pages/serverErrorPage";
-import EmailErrorPage from "@pages/emailErrorPage";
-import ResetPasswordPage from "@pages/resetPasswordPage";
-
 import PATHS from "./paths";
 import { AppDispatch, RootState, history } from "@redux/configure-store";
-import RegistrationErrorPage from "@pages/registrationErrorPage";
-import RegistrationSuccessPage from "@pages/registrationSuccessPage";
-import ChangePasswordErrorPage from "@pages/changePasswordErrorPage";
-import ChangePasswordSuccessPage from "@pages/changePasswordSuccessPage";
-import AuthRegistrationPage from "@pages/authRegistrationPage";
-import NewPasswordPage from "@pages/newPasswordPage";
-import FeedbacksPage from "@pages/feedbacksPage";
 import { loginUseGoogleToken } from "../api/authApi";
 import { locationSelect } from "@redux/selectors";
+import { ChangePasswordErrorPage } from "@pages/changePasswordErrorPage/changePasswordErrorPage";
+import { MainPage } from "@pages/main-page/main-page";
+import { AuthPage } from "@pages/authPage/authPage";
+import { AuthRegistrationPage } from "@pages/authRegistrationPage/authRegistrationPage";
+import { AuthErrorPage } from "@pages/authErrorPage/authErrorPage";
+import { RegistrationErrorEmailPage } from "@pages/registrationErrorEmailPage/registrationErrorEmailPage";
+import { RegistrationErrorPage } from "@pages/registrationErrorPage/registrationErrorPage";
+import { RegistrationSuccessPage } from "@pages/registrationSuccessPage/registrationSuccessPage";
+import { ServerErrorPage } from "@pages/serverErrorPage/serverErrorPage";
+import { EmailErrorPage } from "@pages/emailErrorPage/emailErrorPage";
+import { ResetPasswordPage } from "@pages/resetPasswordPage/resetPasswordPage";
+import { ChangePasswordSuccessPage } from "@pages/changePasswordSuccessPage/changePasswordSuccessPage";
+import { NewPasswordPage } from "@pages/newPasswordPage/newPasswordPage";
+import { FeedbacksPage } from "@pages/feedbacksPage/feedbacksPage";
 
 let programmaticallyNavigatedToResult = false;
 
@@ -31,7 +30,7 @@ export const redirectTo = (path: string) => {
 
 
 
-const Routes = () => {
+export const Routes = () => {
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
 
   const location = useSelector(locationSelect);
@@ -96,4 +95,3 @@ const Routes = () => {
   )
 }
 
-export default Routes

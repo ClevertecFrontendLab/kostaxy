@@ -1,14 +1,14 @@
 import React from 'react';
-import FormAuthorization from '@components/formAuthorization/formAuthorization';
 import { Card, Tabs, TabsProps } from 'antd';
 
 import styles from './authPage.module.scss';
 
-import Logo from '@components/logo/logo';
 import PATHS from '../../routes/paths';
 import { redirectTo } from '../../routes/routes';
+import { FormAuthorization } from '@components/formAuthorization/formAuthorization';
+import { Logo } from '@components/logo/logo';
 
-const AuthPage: React.FC = () => {
+export const AuthPage: React.FC = () => {
 
   const items: TabsProps['items'] = [
     {
@@ -35,4 +35,4 @@ const AuthPage: React.FC = () => {
     </div>
   );
 };
-export default AuthPage;
+

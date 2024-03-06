@@ -6,12 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './failLoadFeedbackModal.module.scss';
 import { redirectTo } from '../../../../routes/routes';
 import PATHS from '../../../..//routes/paths';
-import ErrorServerIcon from '@components/errorServerIcon';
 import { hideFeedbackLoadErrorModal } from '@redux/modalSlice';
 import { AppDispatch } from '@redux/configure-store';
 import { isShowFeedbackLoadFailedSelect } from '@redux/selectors';
+import { ErrorServerIcon } from '@components/errorServerIcon/errorServerIcon';
 
-const FailLoadFeedbackModal: React.FC = React.memo(() => {
+export const FailLoadFeedbackModal: React.FC = React.memo(() => {
 
   const isOpen = useSelector(isShowFeedbackLoadFailedSelect)
   const dispatch = useDispatch<AppDispatch>();
@@ -54,4 +54,3 @@ const FailLoadFeedbackModal: React.FC = React.memo(() => {
   );
 });
 
-export default FailLoadFeedbackModal

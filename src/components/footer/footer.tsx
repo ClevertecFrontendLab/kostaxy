@@ -17,7 +17,7 @@ const footerActions = [
   <Button type="text" icon={<AppleFilled />}>Apple iOS</Button>
 ]
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
   const navigate = useNavigate();
   const handleFetchFeedbacks = () => {
     navigate(PATHS.feedbacks)
@@ -44,6 +44,3 @@ const Footer: React.FC = () => {
     </AntdFooter>
   )
 };
-
-
-export default Footer

@@ -9,7 +9,7 @@ import { registration } from '../../api/authApi';
 import { emailSelect, passwordSelect } from '@redux/selectors';
 
 
-const RegistrationErrorPage: React.FC = () => {
+export const RegistrationErrorPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const email = useSelector(emailSelect)
   const password = useSelector(passwordSelect)
@@ -39,4 +39,3 @@ const RegistrationErrorPage: React.FC = () => {
     </div>
   );
 };
-export default RegistrationErrorPage;

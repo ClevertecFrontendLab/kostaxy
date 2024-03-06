@@ -1,6 +1,6 @@
 import Icon, { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
 
-const ErrorServerInon = () => {
+export const ErrorServerIcon = () => {
 
   const ErrorServerSvg = () => (
     <svg width="255" height="294" viewBox="0 0 255 294" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,14 +69,12 @@ const ErrorServerInon = () => {
 
   );
 
-  const ErrorServerInon = (props: Partial<CustomIconComponentProps>) => (
+  const ErrorServerIcon = (props: Partial<CustomIconComponentProps>) => (
     <Icon component={ErrorServerSvg} {...props} />
   );
 
   return (
-    <ErrorServerInon />
+    <ErrorServerIcon />
   );
 };
-
-export default ErrorServerInon
 

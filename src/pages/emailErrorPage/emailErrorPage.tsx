@@ -10,7 +10,7 @@ const redirectToAuth = () => {
   redirectTo(PATHS.auth);
 }
 
-const EmailErrorPage: React.FC = () => {
+export const EmailErrorPage: React.FC = () => {
   return (
     <div className={styles.background}>
       <Card className={styles.сard_сontainer}>
@@ -31,4 +31,3 @@ const EmailErrorPage: React.FC = () => {
     </div >
   );
 };
-export default EmailErrorPage;

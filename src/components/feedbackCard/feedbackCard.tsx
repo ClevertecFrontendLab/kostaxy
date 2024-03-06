@@ -16,7 +16,7 @@ function formatDate(dateString: string) {
 }
 
 type Props = { post: FeedbackPost }
-const FeedbackCard = ({ post }: Props) => (
+export const FeedbackCard = ({ post }: Props) => (
   <Card>
     <div className={styles.card_container}>
       <div className={styles.avatar_container}>
@@ -61,5 +61,3 @@ const FeedbackCard = ({ post }: Props) => (
     </div>
   </Card>
 );
-
-export default FeedbackCard

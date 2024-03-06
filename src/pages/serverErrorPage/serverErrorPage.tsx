@@ -2,13 +2,13 @@ import { Button, Card } from 'antd';
 import React from 'react';
 
 import styles from './serverErrorPage.module.scss'
-import ErrorServerIcon from '@components/errorServerIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
 import { changePassword } from '../../api/authApi';
 import { emailSelect } from '@redux/selectors';
+import { ErrorServerIcon } from '@components/errorServerIcon/errorServerIcon';
 
-const ServerErrorPage: React.FC = () => {
+export const ServerErrorPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const email = useSelector(emailSelect)
   const handleReset = () => {
@@ -33,4 +33,3 @@ const ServerErrorPage: React.FC = () => {
     </div>
   );
 };
-export default ServerErrorPage;

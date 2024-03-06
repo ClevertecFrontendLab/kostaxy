@@ -5,7 +5,7 @@ import styles from './Loader.module.scss'
 import { useSelector } from "react-redux";
 import { isLoadingSelect } from "@redux/selectors";
 
-const Loader = () => {
+export const Loader = () => {
   const isLoading = useSelector(isLoadingSelect)
 
   return (
@@ -16,5 +16,3 @@ const Loader = () => {
     />
   );
 };
-
-export default Loader;

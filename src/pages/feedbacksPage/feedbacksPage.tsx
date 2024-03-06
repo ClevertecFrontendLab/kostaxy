@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from 'react';
 
 import { Button, Layout } from 'antd';
-import Sider from '@components/sider';
 import { useResizeChecker } from '@hooks/resizeChecker';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
-import HeaderBreadcrumbs from '@components/mainHeaderContent/pageHeaderContent';
 
 import styles from './feedbacksPage.module.scss'
-import FeedbackCard from '@components/feedbackCard/feedbackCard';
 import { FeedbackPost } from '@redux/feedbacksSlice';
 import { getFeedbacksPosts } from '../../api/feedbacksApi';
-import CreateFeedbackModal from '@components/modals/feedback/createFeedbackModal';
 import { showFeedbackFormModal } from '@redux/modalSlice';
-import FailAddFeedbackModal from '@components/modals/feedback/failAddFeedbackModal';
-import SuccessFeedbackModal from '@components/modals/feedback/successFeedbackModal';
-import FailLoadFeedbackModal from '@components/modals/feedback/failLoadFeedbackModal/failLoadFeedbackModal';
 import { EmptyFeedback } from '@components/emptyFeedback/emptyFeedback';
 import { postsSelect } from '@redux/selectors';
+import { FeedbackCard } from '@components/feedbackCard/feedbackCard';
+import { HeaderBreadcrumbs } from '@components/mainHeaderContent/pageHeaderContent';
+import { CreateFeedbackModal } from '@components/modals/feedback/createFeedbackModal/createFeedbackModal';
+import { FailAddFeedbackModal } from '@components/modals/feedback/failAddFeedbackModal/failAddFeedbackModal';
+import { FailLoadFeedbackModal } from '@components/modals/feedback/failLoadFeedbackModal/failLoadFeedbackModal';
+import { SuccessFeedbackModal } from '@components/modals/feedback/successFeedbackModal/successFeedbackModal';
+import { MySider } from '@components/sider/sider';
 
 const getShortFeedbacks = (posts: any) => {
   return [...posts].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).filter((_, ind) => ind < 4)
 }
 
-const FeedbacksPage: React.FC = () => {
+export const FeedbacksPage: React.FC = () => {
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -60,7 +60,7 @@ const FeedbacksPage: React.FC = () => {
       <FailAddFeedbackModal />
       <SuccessFeedbackModal />
 
-      <Sider testId={testId} isCollapsed={true} />
+      <MySider testId={testId} isCollapsed={true} />
       <Layout className='content-layout'>
         <HeaderBreadcrumbs />
         {
@@ -96,4 +96,3 @@ const FeedbacksPage: React.FC = () => {
   );
 };
 
-export default FeedbacksPage
