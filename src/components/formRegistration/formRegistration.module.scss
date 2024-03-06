@@ -32,17 +32,17 @@
 
 :global(#basic_password_help) {
   font-family: var(--font-family);
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
   font-size: 12px;
-  line-height: 130%;
+  line-height: var(--line-height);
   color: var(--character-light-secondary-45);
 }
 
 :global(#basic_password_confirm_help) {
   font-family: var(--font-family);
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
   font-size: 12px;
-  line-height: 130%;
+  line-height: var(--line-height);
   color: var(--character-light-secondary-45);
 }
 

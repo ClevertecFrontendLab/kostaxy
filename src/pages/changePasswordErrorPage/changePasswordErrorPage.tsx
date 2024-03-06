@@ -6,13 +6,14 @@ import styles from './changePasswordErrorPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
 import { setNewPassword } from '../../api/authApi';
+import { passwordConfirmSelect, passwordSelect } from '@redux/selectors';
 
 
 
 const ChangePasswordErrorPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const password = useSelector((state: any) => state.auth.password)
-  const passwordConfirm = useSelector((state: any) => state.auth.passwordConfirm)
+  const password = useSelector(passwordSelect)
+  const passwordConfirm = useSelector(passwordConfirmSelect)
 
   const handleResetPassword = () => {
     dispatch(setNewPassword(password, passwordConfirm));

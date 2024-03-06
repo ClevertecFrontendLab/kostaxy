@@ -19,6 +19,7 @@ import AuthRegistrationPage from "@pages/authRegistrationPage";
 import NewPasswordPage from "@pages/newPasswordPage";
 import FeedbacksPage from "@pages/feedbacksPage";
 import { loginUseGoogleToken } from "../api/authApi";
+import { locationSelect } from "@redux/selectors";
 
 let programmaticallyNavigatedToResult = false;
 
@@ -33,10 +34,11 @@ export const redirectTo = (path: string) => {
 const Routes = () => {
   const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
 
-  const location = useSelector((state: any) => state.router.location);
+  const location = useSelector(locationSelect);
+
   const navigate = useNavigate();
 
-  const params = new URLSearchParams(location.search);
+  const params = new URLSearchParams(location?.search);
   const token = params.get('accessToken');
   const dispatch = useDispatch<AppDispatch>();
 
@@ -56,7 +58,7 @@ const Routes = () => {
   }, [isAuthenticated]);
 
   useEffect(() => {
-    if (location.pathname === '/') {
+    if (location?.pathname === '/') {
       if (isAuthenticated || localStorage.getItem("token")) {
         navigate(PATHS.main);
       } else {
@@ -64,7 +66,7 @@ const Routes = () => {
       }
     }
 
-    if (location.pathname.startsWith('/result') && !programmaticallyNavigatedToResult) {
+    if (location?.pathname.startsWith('/result') && !programmaticallyNavigatedToResult) {
       history.push(PATHS.auth);
     }
 

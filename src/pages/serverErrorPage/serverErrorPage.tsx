@@ -6,10 +6,11 @@ import ErrorServerIcon from '@components/errorServerIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
 import { changePassword } from '../../api/authApi';
+import { emailSelect } from '@redux/selectors';
 
 const ServerErrorPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const email = useSelector((state: any) => state.auth.email)
+  const email = useSelector(emailSelect)
   const handleReset = () => {
     dispatch(changePassword(email));
   }

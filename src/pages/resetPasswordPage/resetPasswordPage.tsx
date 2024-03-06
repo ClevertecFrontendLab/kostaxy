@@ -7,13 +7,14 @@ import VerificationInput from 'react-verification-input';
 import { useDispatch, useSelector } from 'react-redux';
 import { changePasswordCodeConfirm } from '../../api/authApi';
 import { AppDispatch } from '@redux/configure-store';
+import { emailSelect, resetPasswordErrorSelect } from '@redux/selectors';
 
 
 const ResetPasswordPage: React.FC = () => {
   const [code, setCode] = useState('');
   const dispatch = useDispatch<AppDispatch>();
-  const email = useSelector((state: any) => state.auth.email)
-  const resetPasswordError = useSelector((state: any) => state.auth.resetPasswordError)
+  const email = useSelector(emailSelect)
+  const resetPasswordError = useSelector(resetPasswordErrorSelect)
 
   const handleComplete = (value: string) => {
     dispatch(changePasswordCodeConfirm(email, value));

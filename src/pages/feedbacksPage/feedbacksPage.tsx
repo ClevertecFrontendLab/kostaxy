@@ -17,6 +17,7 @@ import FailAddFeedbackModal from '@components/modals/feedback/failAddFeedbackMod
 import SuccessFeedbackModal from '@components/modals/feedback/successFeedbackModal';
 import FailLoadFeedbackModal from '@components/modals/feedback/failLoadFeedbackModal/failLoadFeedbackModal';
 import { EmptyFeedback } from '@components/emptyFeedback/emptyFeedback';
+import { postsSelect } from '@redux/selectors';
 
 const getShortFeedbacks = (posts: any) => {
   return [...posts].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).filter((_, ind) => ind < 4)
@@ -30,7 +31,7 @@ const FeedbacksPage: React.FC = () => {
     dispatch(getFeedbacksPosts());
   }, [])
 
-  const posts = useSelector((state: any) => state.feedbacks.posts)
+  const posts = useSelector(postsSelect)
 
   const shortFeedbackPosts = getShortFeedbacks(posts)
   const [isHiddenFeedbacks, setIsHiddenFeedbacks] = useState(true);

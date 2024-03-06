@@ -3,9 +3,10 @@ import groovyWalkAnimation from "./loader.json";
 
 import styles from './Loader.module.scss'
 import { useSelector } from "react-redux";
+import { isLoadingSelect } from "@redux/selectors";
 
 const Loader = () => {
-  const isLoading = useSelector((state: any) => state.loader.isLoading)
+  const isLoading = useSelector(isLoadingSelect)
 
   return (
     isLoading && <Lottie
