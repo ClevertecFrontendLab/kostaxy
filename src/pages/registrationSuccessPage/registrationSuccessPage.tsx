@@ -1,4 +1,4 @@
-import { CheckCircleFilled, CloseCircleFilled, WarningFilled } from '@ant-design/icons';
+import { CheckCircleFilled } from '@ant-design/icons';
 import { Button, Card } from 'antd';
 import React from 'react';
 
@@ -10,7 +10,7 @@ const redirectToAuth = () => {
   redirectTo(PATHS.auth);
 }
 
-const RegistrationSuccessPage: React.FC = () => {
+export const RegistrationSuccessPage: React.FC = () => {
   return (
     <div className={styles.background}>
       <Card className={styles.сard_сontainer}>
@@ -32,4 +32,3 @@ const RegistrationSuccessPage: React.FC = () => {
     </div>
   );
 };
-export default RegistrationSuccessPage;

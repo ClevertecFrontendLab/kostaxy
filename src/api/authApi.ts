@@ -1,27 +1,30 @@
 import { redirectTo } from '../routes/routes';
 import { hideLoader, showLoader } from '@redux/loaderSlice';
 import axios from 'axios';
-import { loginSuccess, loginFailure, resetPassword, registerUser, resetPasswordFailure, newPassword, logout } from './../redux/authSlice';
+import { loginSuccess, resetAuth, resetPassword, registerUser, resetPasswordFailure, newPassword, logout } from './../redux/authSlice';
 import { AppDispatch } from './../redux/configure-store';
 import PATHS from '../routes/paths';
+import { API_URLS } from './constants';
 
 const api = axios.create({
   baseURL: 'https://marathon-api.clevertec.ru',
   headers: {
     'Content-Type': 'application/json',
+    'accept': 'application/json'
   },
+  withCredentials: true
 });
+
 
 export const login = (email: string, password: string, isRememberUser: boolean) => async (dispatch: AppDispatch) => {
   try {
     dispatch(showLoader())
-    const token = localStorage.getItem("token") as string;
-
-    const response = await axios({
+    dispatch(resetAuth())
+    localStorage.removeItem("token");
+    const response = await api({
       method: 'post',
-      url: '/auth/login',
+      url: API_URLS.authLogin,
       data: { email, password },
-      headers: token ? { Bearer: `token=${token}` } : {}
     });
     dispatch(loginSuccess(response.data.accessToken));
     if (isRememberUser) {
@@ -29,7 +32,7 @@ export const login = (email: string, password: string, isRememberUser: boolean) 
     }
     redirectTo(PATHS.main)
   } catch (error: any) {
-    dispatch(loginFailure());
+    dispatch(resetAuth());
     redirectTo(PATHS.authError);
     dispatch(hideLoader())
   }
@@ -39,7 +42,7 @@ export const registration = (email: string, password: string) => async (dispatch
   try {
     dispatch(showLoader())
     dispatch(registerUser({ email: email, password: password }))
-    await api.post('/auth/registration', { email, password });
+    await api.post(API_URLS.authRegistration, { email, password });
     redirectTo(PATHS.registrationSuccess)
   } catch (error: any) {
     if (error.response.status === 409) {
@@ -56,7 +59,7 @@ export const changePassword = (email: string) => async (dispatch: AppDispatch) =
   try {
     dispatch(showLoader())
     dispatch(resetPassword(email));
-    await api.post('/auth/check-email', { email });
+    await api.post(API_URLS.authCheckEmail, { email });
     redirectTo(PATHS.resetPassword);
   } catch (error: any) {
     if (error.response.status === 404 && error.response.data.message === 'Email не найден') {
@@ -72,7 +75,7 @@ export const changePassword = (email: string) => async (dispatch: AppDispatch) =
 export const changePasswordCodeConfirm = (email: string, code: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(showLoader())
-    await api.post('/auth/confirm-email', { email, code });
+    await api.post(API_URLS.authConfirmEmail, { email, code });
     redirectTo(PATHS.newPasswordPage)
   } catch (error: any) {
     dispatch(resetPasswordFailure())
@@ -85,13 +88,12 @@ export const setNewPassword = (password: string, confirmPassword: string) => asy
   try {
     dispatch(showLoader())
     dispatch(newPassword({ password: password, passwordConfirm: confirmPassword }))
-    const token = localStorage.getItem("token") as string;
-
-    await axios({
+    console.log(document.cookie)
+    await api({
       method: 'post',
-      url: '/auth/change-password',
+      url: API_URLS.authChangePassword,
       data: { password, confirmPassword },
-      headers: { Cookie: `token=${token}` }
+      headers: { Cookie: `accessToken=${document.cookie}` }
     });
 
     localStorage.removeItem("token");
@@ -104,3 +106,21 @@ export const setNewPassword = (password: string, confirmPassword: string) => asy
   }
 };
 
+export const getGoogleToken = () => {
+  window.location.href = API_URLS.authGoogle;
+};
+
+export const loginUseGoogleToken = (token: string) => async (dispatch: AppDispatch) => {
+  try {
+    dispatch(showLoader())
+    dispatch(resetAuth())
+    localStorage.removeItem("token");
+    dispatch(loginSuccess(token));
+    localStorage.setItem("token", token);
+    redirectTo(PATHS.main)
+  } catch (error: any) {
+    dispatch(resetAuth());
+    redirectTo(PATHS.authError);
+    dispatch(hideLoader())
+  }
+};

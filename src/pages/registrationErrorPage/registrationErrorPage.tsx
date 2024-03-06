@@ -1,19 +1,18 @@
-import { CloseCircleFilled, WarningFilled } from '@ant-design/icons';
+import { CloseCircleFilled } from '@ant-design/icons';
 import { Button, Card } from 'antd';
 import React from 'react';
 
-import styles from './registrationErrorPage.module.scss'
-import { redirectTo } from '../../routes/routes';
-import PATHS from '../../routes/paths';
+import styles from './registrationErrorPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
 import { registration } from '../../api/authApi';
+import { emailSelect, passwordSelect } from '@redux/selectors';
 
 
-const RegistrationErrorPage: React.FC = () => {
+export const RegistrationErrorPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const email = useSelector((state: any) => state.auth.email)
-  const password = useSelector((state: any) => state.auth.password)
+  const email = useSelector(emailSelect)
+  const password = useSelector(passwordSelect)
   const handleRegistration = () => {
     dispatch(registration(email, password));
   }
@@ -40,4 +39,3 @@ const RegistrationErrorPage: React.FC = () => {
     </div>
   );
 };
-export default RegistrationErrorPage;

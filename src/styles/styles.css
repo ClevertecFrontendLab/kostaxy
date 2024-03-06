@@ -120,7 +120,7 @@ html {
   .ant-layout-sider {
     position: fixed !important;
     height: 100vh;
-    z-index: 9999;
+    z-index: 2;
     width: 106px !important;
     flex: 0 0 106px !important;
     max-width: 106px !important;
@@ -130,7 +130,7 @@ html {
 @media only screen and (min-width: 834px) {
   .ant-layout-sider {
     position: relative !important;
-    z-index: 9999;
+    z-index: 2;
     height: auto;
     width: 208px !important;
     flex: 0 0 208px !important;
@@ -141,7 +141,7 @@ html {
 @media only screen and (min-width: 1440px) {
   .ant-layout-sider {
     position: relative !important;
-    z-index: 9999;
+    z-index: 2;
     height: auto;
   }
 }
@@ -195,7 +195,7 @@ html {
   left: 100%;
   transform: translateY(-50%);
   cursor: pointer;
-  z-index: 9999;
+  z-index: 2;
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="66" viewBox="0 0 20 66" fill="none"><path d="M0 0L20 8V58L0 66V0Z" fill="white"/></svg>');
   top: 50%;
   width: 20px;

@@ -1,0 +1,30 @@
+.modal {
+  :global(.ant-modal-body) {
+    padding: 0;
+  }
+
+  width: 529px;
+}
+
+.content {
+  padding: 64px 85.5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  @media only screen and (min-width: 360px) and (max-width: calc(834px - 1px)) {
+    padding: 32px 16px;
+  }
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-medium);
+  line-height: var(--line-height);
+  text-align: center;
+  color: var(--character-light-title-85);
+}

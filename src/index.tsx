@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-import App from '@pages/app';
+import { App } from '@pages/app';
 
 import 'antd/dist/antd.css';
 import 'normalize.css';

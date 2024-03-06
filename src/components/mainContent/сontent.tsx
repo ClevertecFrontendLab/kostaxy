@@ -5,12 +5,12 @@ import {
   IdcardOutlined,
 } from '@ant-design/icons';
 import { Button, Card, Layout } from 'antd';
-import CalendarIcon from '@components/calendarIcon';
+import { CalendarIcon } from '@components/calendarIcon/calendarIcon';
 
 
 const { Content } = Layout;
 
-const MainContent: React.FC = () => {
+export const MainContent: React.FC = () => {
   return (
     <Content>
       <div className="card-container">
@@ -42,5 +42,3 @@ const MainContent: React.FC = () => {
     </Content>
   );
 };
-
-export default MainContent

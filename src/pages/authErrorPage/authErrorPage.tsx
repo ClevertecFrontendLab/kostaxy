@@ -6,7 +6,7 @@ import { WarningFilled } from '@ant-design/icons';
 import { redirectTo } from '../../routes/routes';
 import PATHS from '../../routes/paths';
 
-const AuthErrorPage: React.FC = () => {
+export const AuthErrorPage: React.FC = () => {
   return (
 
     < div className={styles.background} >
@@ -30,4 +30,3 @@ const AuthErrorPage: React.FC = () => {
     </div >
   );
 };
-export default AuthErrorPage;

@@ -1,0 +1,57 @@
+@import '../../styles/base/vars.scss';
+
+.empty_container {
+  padding: var(--padding-small);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+
+  :global(.ant-card) {
+    width: 100%;
+  }
+
+  :global(.ant-card-body) {
+    padding: var(--padding-medium);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+  }
+
+  @media only screen and (min-width: 360px) and (max-width: calc(834px - 1px)) {
+    :global(.ant-btn) {
+      width: 100%;
+    }
+
+    justify-content: start;
+    gap: 48px;
+  }
+}
+
+.text {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-medium);
+  line-height: var(--line-height);
+  text-align: center;
+  color: var(--primary-light-9);
+}
+
+.subtext {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height);
+  text-align: center;
+  color: var(--character-light-secondary-45);
+}
+
+@media only screen and (min-width: 360px) and (max-width: calc(834px - 1px)) {
+  .subtext {
+    padding: var(--padding-text);
+  }
+}

@@ -1,23 +1,21 @@
-import { Button, Card, Checkbox, Form, Input } from 'antd';
+import { Button, Card, Form, Input } from 'antd';
 import React, { useEffect, useState } from 'react';
 
 import styles from './formRegistration.module.scss'
 import { GooglePlusOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
-import { registration } from '../../api/authApi';
-import { useForm } from 'antd/lib/form/Form';
+import { getGoogleToken, registration } from '../../api/authApi';
 
-interface ButtonSettings {
+type ButtonSettings = {
   type: "link" | "primary" | "text" | "ghost" | "default" | "dashed" | undefined;
   disabled: boolean;
 }
 
-
-const FormRegistration: React.FC = () => {
+export const FormRegistration: React.FC = () => {
 
   function validateEmail(email: string) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
 
@@ -135,6 +133,7 @@ const FormRegistration: React.FC = () => {
           </Form.Item>
           <Form.Item>
             <Button
+              onClick={getGoogleToken}
               icon={<GooglePlusOutlined />}
               style={{ width: "100%" }}>
               Войти через Google
@@ -145,4 +144,3 @@ const FormRegistration: React.FC = () => {
     </Card >
   );
 };
-export default FormRegistration

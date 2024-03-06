@@ -12,18 +12,18 @@ import { Layout, Menu } from 'antd';
 
 import imgSmall from '../../assets/svg/logo/fit.svg';
 import imgLarge from '../../assets/svg/logo/Cleverfit.svg';
-import ExitIcon from '@components/exitIcon';
-import CalendarIcon from '@components/calendarIcon';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@redux/configure-store';
 import { logout } from '@redux/authSlice';
 import { redirectTo } from '../../routes/routes';
 import PATHS from '../../routes/paths';
+import { CalendarIcon } from '@components/calendarIcon/calendarIcon';
+import { ExitIcon } from '@components/exitIcon/exitIcon';
 
 const { Sider } = Layout;
-type Props = { testId: string }
-const MySider = React.memo(({ testId }: Props) => {
-  const [collapsed, setCollapsed] = useState(false);
+type Props = { testId: string, isCollapsed?: boolean }
+export const MySider = React.memo(({ testId, isCollapsed = false }: Props) => {
+  const [collapsed, setCollapsed] = useState(isCollapsed);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -110,5 +110,3 @@ const MySider = React.memo(({ testId }: Props) => {
     </Sider>
   );
 });
-
-export default MySider

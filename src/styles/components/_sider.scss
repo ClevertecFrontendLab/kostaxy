@@ -2,7 +2,7 @@
   @include sm {
     position: fixed !important;
     height: 100vh;
-    z-index: 9999;
+    z-index: 2;
     width: 106px !important;
     flex: 0 0 106px !important;
     max-width: 106px !important;
@@ -11,7 +11,7 @@
 
   @include md {
     position: relative !important;
-    z-index: 9999;
+    z-index: 2;
     height: auto;
     width: 208px !important;
     flex: 0 0 208px !important;
@@ -21,7 +21,7 @@
 
   @include lg {
     position: relative !important;
-    z-index: 9999;
+    z-index: 2;
     height: auto;
   }
 
@@ -76,7 +76,7 @@
   left: 100%;
   transform: translateY(-50%);
   cursor: pointer;
-  z-index: 9999;
+  z-index: 2;
 
   svg {
     fill: var(--character-light-secondary-45);
